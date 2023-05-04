@@ -1,6 +1,7 @@
 from typing import List
 from pydantic import BaseModel
 from fastapi import APIRouter
+from fastapi.exceptions import HTTPException
 import db
 
 class Lane(BaseModel):
@@ -32,6 +33,24 @@ async def get_lanes():
     )
     
     return list(lanes)
+
+@router.get("/{id}", response_model=Lane)
+async def get_lane(
+    id: str
+):
+    lane = db.mongo.get_collection('lanes').find_one(
+        filter={
+            'id': id
+        },
+        projection={
+            '_id': 0
+        }
+    )
+
+    if not lane:
+        raise HTTPException(404)
+    
+    return lane
 
 @router.post("/")
 async def update_lane(

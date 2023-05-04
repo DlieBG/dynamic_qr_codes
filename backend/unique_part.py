@@ -1,6 +1,7 @@
 from typing import List, Union
 from pydantic import BaseModel
 from fastapi import APIRouter
+from fastapi.exceptions import HTTPException
 import db
 
 class KeyValueData(BaseModel):
@@ -32,7 +33,7 @@ router = APIRouter(
 
 @router.get("/", response_model=List[UniquePart])
 async def get_unique_parts():
-    lanes = db.mongo.get_collection('unique_parts').find(
+    unique_parts = db.mongo.get_collection('unique_parts').find(
         filter={
         },
         sort=[
@@ -43,7 +44,25 @@ async def get_unique_parts():
         }
     )
     
-    return list(lanes)
+    return list(unique_parts)
+
+@router.get("/{id}", response_model=List[UniquePart])
+async def get_unique_part(
+    id: str
+):
+    unique_part = db.mongo.get_collection('unique_parts').find_one(
+        filter={
+            'id': id
+        },
+        projection={
+            '_id': 0
+        }
+    )
+
+    if not unique_part:
+        raise HTTPException(404)
+    
+    return unique_part
 
 @router.post("/")
 async def update_unique_part(
