@@ -82,7 +82,7 @@ async def update_unique_part(
     )
 
 @router.delete("/")
-async def delete_lane(
+async def delete_unique_parts(
     uniquePartDeleteDto: UniquePartDeleteDto
 ):
     db.mongo.get_collection('unique_parts').delete_one(
