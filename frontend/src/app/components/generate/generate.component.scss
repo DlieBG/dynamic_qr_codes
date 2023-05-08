@@ -21,6 +21,18 @@ h2 {
     width: 100%;
 }
 
+.lanes {
+    margin-bottom: 1em;
+}
+
+.lanes, mat-form-field {
+    width: 100%;
+}
+
+th {
+    float: right;
+}
+
 code {
     margin-top: 1em;
     width: 100%;

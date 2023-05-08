@@ -2,6 +2,45 @@
     <div class="container">
         <mat-card>
             <h2>Generate QR Code</h2>
+
+            <div class="lanes" *ngIf="lanes$ | async as lanes">
+                <mat-form-field appearance="outline">
+                    <mat-label>Lane</mat-label>
+                    <mat-select [(ngModel)]="lane" (selectionChange)="generateCode()">
+                        <mat-option *ngFor="let lane of lanes" [value]="lane">
+                            {{ lane.id }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <div class="lane" *ngIf="lane">
+                    <table>
+                        <tr>
+                            <th>
+                                ID:
+                            </th>
+                            <td>
+                                {{ lane.id }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Fallback URL:
+                            </th>
+                            <td>
+                                {{ lane.fallback_url }}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button mat-raised-button color="accent" (click)="generateCode()" *ngIf="lane">
+                    <mat-icon>refresh</mat-icon>
+                    Generate
+                </button>
+            </div>
         </mat-card>
         
         <mat-card *ngIf="url">
