@@ -13,6 +13,9 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { QRCodeModule } from 'angularx-qrcode';
@@ -29,7 +32,6 @@ import { AdminLaneListComponent } from './components/admin/admin-lane-list/admin
 import { AdminLaneCreateComponent } from './components/admin/admin-lane-create/admin-lane-create.component';
 import { AdminUniquePartListComponent } from './components/admin/admin-unique-part-list/admin-unique-part-list.component';
 import { AdminUniquePartComponent } from './components/admin/admin-unique-part/admin-unique-part.component';
-import { AdminUniquePartCreateComponent } from './components/admin/admin-unique-part-create/admin-unique-part-create.component';
 import { AdminComponent } from './components/admin/admin/admin.component';
 import { HomeComponent } from './components/home/home.component';
 
@@ -45,7 +47,6 @@ import { HomeComponent } from './components/home/home.component';
     AdminLaneCreateComponent,
     AdminUniquePartListComponent,
     AdminUniquePartComponent,
-    AdminUniquePartCreateComponent,
     AdminComponent,
     HomeComponent,
   ],
@@ -67,6 +68,9 @@ import { HomeComponent } from './components/home/home.component';
     MatCardModule,
     MatSnackBarModule,
     MatSelectModule,
+    MatTabsModule,
+    MatTableModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

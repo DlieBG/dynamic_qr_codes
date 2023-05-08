@@ -1,1 +1,21 @@
-<p>admin works!</p>
+<div class="body">
+    <div class="title">
+        <h2>
+            Administration
+        </h2>
+
+        <button mat-stroked-button (click)="openScanner()">
+            <mat-icon>qr_code</mat-icon>
+            Open scanner
+        </button>
+    </div>
+
+    <mat-tab-group>
+        <mat-tab label="Lanes" selectedIndex="1">
+            <router-outlet name="lanes"></router-outlet>
+        </mat-tab>
+        <mat-tab label="Unique Parts">
+            <router-outlet name="unique_parts"></router-outlet>
+        </mat-tab>
+    </mat-tab-group>
+</div>

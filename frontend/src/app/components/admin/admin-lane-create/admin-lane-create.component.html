@@ -1,1 +1,22 @@
-<p>admin-lane-create works!</p>
+<div class="body">
+    <h2>Create Lane</h2>
+
+    <div class="input">
+        <mat-form-field appearance="outline">
+            <mat-label>ID</mat-label>
+            <input matInput [(ngModel)]="laneUpdateDto.id">
+            <mat-icon matSuffix>fingerprint</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Fallback URL</mat-label>
+            <input matInput [(ngModel)]="laneUpdateDto.fallback_url">
+            <mat-icon matSuffix>link</mat-icon>
+        </mat-form-field>
+
+        <button mat-stroked-button (click)="create()">
+            <mat-icon>save</mat-icon>
+            Create
+        </button>
+    </div>
+</div>

@@ -1,1 +1,97 @@
-<p>admin-unique-part works!</p>
+<div class="body">
+    <div class="title">
+        <button mat-icon-button [routerLink]="[ '/admin', { outlets: { unique_parts: [] } } ]">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+
+        <h2>
+            Unique Part
+        </h2>
+    </div>
+
+    <div class="input" *ngIf="uniquePart$ | async as uniquePart;">
+        <mat-form-field appearance="outline">
+            <mat-label>ID</mat-label>
+            <input matInput [(ngModel)]="uniquePart.id">
+            <mat-icon matSuffix>fingerprint</mat-icon>
+        </mat-form-field>
+
+        <div class="data" *ngFor="let data of dataArray(uniquePart)">
+            <div class="key-value" *ngIf="isKeyValueData(data)">
+                <h3>Key Value Data</h3>
+
+                <div class="wrapper">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Key</mat-label>
+                        <input matInput [(ngModel)]="data.key">
+                        <mat-icon matSuffix>key</mat-icon>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Value</mat-label>
+                        <input matInput [(ngModel)]="data.value">
+                        <mat-icon matSuffix>description</mat-icon>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="key-value" *ngIf="isLinkData(data)">
+                <h3>Link Data</h3>
+
+                <div class="wrapper">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Name</mat-label>
+                        <input matInput [(ngModel)]="data.name">
+                        <mat-icon matSuffix>badge</mat-icon>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>URL</mat-label>
+                        <input matInput [(ngModel)]="data.url">
+                        <mat-icon matSuffix>link</mat-icon>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="key-value" *ngIf="isImageData(data)">
+                <h3>Image Data</h3>
+
+                <div class="wrapper">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Alt</mat-label>
+                        <input matInput [(ngModel)]="data.alt">
+                        <mat-icon matSuffix>healing</mat-icon>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Src</mat-label>
+                        <input matInput [(ngModel)]="data.src">
+                        <mat-icon matSuffix>image</mat-icon>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+
+        <div class="add-data">
+            <button mat-stroked-button (click)="addKeyValueData(uniquePart)">
+                <mat-icon>add</mat-icon>
+                Add Key Value Data
+            </button>
+
+            <button mat-stroked-button (click)="addLinkData(uniquePart)">
+                <mat-icon>add</mat-icon>
+                Add Link Data
+            </button>
+
+            <button mat-stroked-button (click)="addImageData(uniquePart)">
+                <mat-icon>add</mat-icon>
+                Add Image Data
+            </button>
+        </div>
+
+        <button mat-stroked-button class="update" (click)="update(uniquePart)">
+            <mat-icon>save</mat-icon>
+            Update
+        </button>
+    </div>
+</div>

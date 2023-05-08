@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AdminScanComponent } from '../admin-scan/admin-scan.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -6,5 +9,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent {
+
+  constructor(
+    private dialog: MatDialog
+  ) { }
+
+  openScanner() {
+    this.dialog.open(AdminScanComponent);
+  }
 
 }

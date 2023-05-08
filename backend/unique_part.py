@@ -46,7 +46,7 @@ async def get_unique_parts():
     
     return list(unique_parts)
 
-@router.get("/{id}", response_model=List[UniquePart])
+@router.get("/{id}", response_model=UniquePart)
 async def get_unique_part(
     id: str
 ):
