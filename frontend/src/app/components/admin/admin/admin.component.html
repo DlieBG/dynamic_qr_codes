@@ -4,14 +4,14 @@
             Administration
         </h2>
 
-        <button mat-stroked-button (click)="openScanner()">
+        <button mat-stroked-button (click)="openScanner(); tabgroup.selectedIndex = 1">
             <mat-icon>qr_code</mat-icon>
             Open scanner
         </button>
     </div>
 
-    <mat-tab-group>
-        <mat-tab label="Lanes" selectedIndex="1">
+    <mat-tab-group [selectedIndex]="0" #tabgroup>
+        <mat-tab label="Lanes">
             <router-outlet name="lanes"></router-outlet>
         </mat-tab>
         <mat-tab label="Unique Parts">
