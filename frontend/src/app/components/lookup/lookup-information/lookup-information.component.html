@@ -1,1 +1,72 @@
-<p>lookup-information works!</p>
+<div class="body">
+    <div class="container">
+        <mat-card *ngIf="uniquePartId && laneId">
+            <div class="title">
+                <h2>
+                    Lookup
+                </h2>
+
+                <button mat-stroked-button routerLink="/">
+                    <mat-icon>qr_code</mat-icon>
+                    Open scanner
+                </button>
+            </div>
+            
+            <table>
+                <tr>
+                    <th>
+                        Lane ID:
+                    </th>
+                    <td>
+                        {{ laneId }}         
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        Unique Part ID:
+                    </th>
+                    <td>
+                        {{ uniquePartId }}         
+                    </td>
+                </tr>
+            </table>
+        </mat-card>
+
+        <ng-container *ngIf="uniquePart$ | async as uniquePart else noUniquePart;">
+            <ng-container *ngFor="let data of dataArray(uniquePart)">
+                <mat-card *ngIf="isKeyValueData(data)">
+                    <h3>
+                        {{ data.key }}
+                    </h3>
+                    <p>
+                        {{ data.value }}
+                    </p>
+                </mat-card>
+
+                <mat-card *ngIf="isLinkData(data)">
+                    <a mat-stroked-button [href]="data.url" target="_blank">
+                        <mat-icon>open_in_new</mat-icon>
+                        {{ data.name }}
+                    </a>
+                </mat-card>
+
+                <mat-card *ngIf="isImageData(data)">
+                    <img [src]="data.src" [alt]="data.alt">
+                </mat-card>
+
+            </ng-container>
+        </ng-container>
+            
+        <ng-template #noUniquePart>
+            <mat-card *ngIf="lane$ | async as lane">
+                <h2>Lane</h2>
+                <p>
+                    Unique Part could not be found. But you can go to the fallback URL of the lane.
+                </p>
+                <a mat-raised-button color="warn" [href]="lane.fallback_url">
+                    Fallback URL
+                </a>
+            </mat-card>
+        </ng-template>
+    </div>
+</div>
