@@ -7,3 +7,4 @@ load_dotenv(find_dotenv())
 mongo = MongoClient(os.getenv('MONGO_URI')).get_database('dynamic_qr_codes')
 
 mongo.get_collection('lanes').create_index('id', unique=True)
+mongo.get_collection('unique_parts').create_index('id', unique=True)
