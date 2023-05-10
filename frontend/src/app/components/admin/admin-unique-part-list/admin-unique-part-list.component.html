@@ -1,0 +1,27 @@
+<div class="body">
+    <div class="unique-parts" *ngIf="uniqueParts$ | async as uniqueParts">
+        <table mat-table [dataSource]="uniqueParts">
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <td mat-cell *matCellDef="let element"> {{ element.id }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="data">
+                <th mat-header-cell *matHeaderCellDef> Data Entries </th>
+                <td mat-cell *matCellDef="let element"> {{ element.data.length }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-icon-button class="edit" [routerLink]="[ { outlets: { unique_parts: [ element.id ] } } ]">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+</div>

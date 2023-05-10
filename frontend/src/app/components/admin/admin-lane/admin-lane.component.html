@@ -1,0 +1,30 @@
+<div class="body">
+    <div class="title">
+        <button mat-icon-button [routerLink]="[ '/admin', { outlets: { lanes: [] } } ]">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+
+        <h2>
+            Lane
+        </h2>
+    </div>
+
+    <div class="input" *ngIf="lane$ | async as lane;">
+        <mat-form-field appearance="outline">
+            <mat-label>ID</mat-label>
+            <input matInput [(ngModel)]="lane.id">
+            <mat-icon matSuffix>fingerprint</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Fallback URL</mat-label>
+            <input matInput [(ngModel)]="lane.fallback_url">
+            <mat-icon matSuffix>link</mat-icon>
+        </mat-form-field>
+
+        <button mat-stroked-button (click)="update(lane)">
+            <mat-icon>save</mat-icon>
+            Update
+        </button>
+    </div>
+</div>

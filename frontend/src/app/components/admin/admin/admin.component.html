@@ -1,0 +1,21 @@
+<div class="body">
+    <div class="title">
+        <h2>
+            Administration
+        </h2>
+
+        <button mat-stroked-button (click)="openScanner(); tabgroup.selectedIndex = 1">
+            <mat-icon>qr_code</mat-icon>
+            Open scanner
+        </button>
+    </div>
+
+    <mat-tab-group [selectedIndex]="0" #tabgroup>
+        <mat-tab label="Lanes">
+            <router-outlet name="lanes"></router-outlet>
+        </mat-tab>
+        <mat-tab label="Unique Parts">
+            <router-outlet name="unique_parts"></router-outlet>
+        </mat-tab>
+    </mat-tab-group>
+</div>

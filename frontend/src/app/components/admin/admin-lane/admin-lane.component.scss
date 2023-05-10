@@ -1,0 +1,23 @@
+.body {
+    margin: 1em;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+h2 {
+    font-weight: 400;
+    margin: 0;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    color: lightskyblue !important;
+}

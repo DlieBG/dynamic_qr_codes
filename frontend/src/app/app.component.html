@@ -1,0 +1,44 @@
+<mat-drawer-container class="container" autosize>
+    <mat-drawer #drawer class="sidenav" mode="side">
+        <mat-selection-list [multiple]="false" [hideSingleSelectionIndicator]="true" (click)="drawer.close()">
+            <mat-list-option routerLink="/">
+                <mat-icon matListItemIcon>qr_code_scanner</mat-icon>
+                <div matListItemTitle>Lookup</div>
+            </mat-list-option>
+
+            <mat-divider></mat-divider>
+
+            <mat-list-option routerLink="/generate">
+                <mat-icon matListItemIcon>add_circle</mat-icon>
+                <div matListItemTitle>Generate</div>
+            </mat-list-option>
+
+            <mat-divider></mat-divider>
+
+            <mat-list-option routerLink="/admin">
+                <mat-icon matListItemIcon>settings</mat-icon>
+                <div matListItemTitle>Administration</div>
+            </mat-list-option>
+        </mat-selection-list>
+    </mat-drawer>
+
+    <div class="content">
+        <mat-toolbar>
+            <button mat-icon-button (click)="drawer.toggle()">
+                <mat-icon>{{ drawer.opened ? 'close' : 'menu' }}}</mat-icon>
+            </button>
+
+            <img src="https://static.benedikt-schwering.de/media/img/flender.svg">
+
+            <span>Dynamic QR</span>
+            
+            <span class="spacer"></span>
+
+            <a mat-icon-button href="https://flender.com" target="_blank">
+                F
+            </a>
+        </mat-toolbar>
+
+        <router-outlet></router-outlet>
+    </div>
+</mat-drawer-container>
