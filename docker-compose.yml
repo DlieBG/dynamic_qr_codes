@@ -1,12 +1,12 @@
 version: '3'
 services:
   frontend:
-    image: docker pull ghcr.io/dliebg/dynamic_qr_codes/frontend:main
+    image: ghcr.io/dliebg/dynamic_qr_codes/frontend:main
     restart: unless-stopped
     ports:
       - 6969:80
 
   backend:
-    image: docker pull ghcr.io/dliebg/dynamic_qr_codes/backend:main
+    image: ghcr.io/dliebg/dynamic_qr_codes/backend:main
     restart: unless-stopped
     env_file: .env

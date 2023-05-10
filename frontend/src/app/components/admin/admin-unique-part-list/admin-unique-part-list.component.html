@@ -24,4 +24,10 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
     </div>
+
+    <div class="add">
+        <button mat-fab [routerLink]="[ { outlets: { unique_parts: [ '' ] } } ]">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
 </div>
