@@ -1,0 +1,7 @@
+version: '3'
+services:
+  proxy:
+    image: ghcr.io/dliebg/dynamic_qr_codes/proxy:main
+    restart: unless-stopped
+    ports:
+      - 6902:80
