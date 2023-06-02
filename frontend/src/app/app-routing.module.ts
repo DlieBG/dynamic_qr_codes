@@ -8,6 +8,7 @@ import { AdminLaneListComponent } from './components/admin/admin-lane-list/admin
 import { AdminUniquePartListComponent } from './components/admin/admin-unique-part-list/admin-unique-part-list.component';
 import { AdminLaneComponent } from './components/admin/admin-lane/admin-lane.component';
 import { AdminUniquePartComponent } from './components/admin/admin-unique-part/admin-unique-part.component';
+import { KeyenceComponent } from './components/keyence/keyence.component';
 
 const routes: Routes = [
   { 
@@ -47,6 +48,10 @@ const routes: Routes = [
         outlet: 'unique_parts'
       },
     ]
+  },
+  {
+    path: 'keyence',
+    component: KeyenceComponent
   }
 ];
 

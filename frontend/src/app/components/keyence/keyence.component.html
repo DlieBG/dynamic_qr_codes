@@ -1,0 +1,24 @@
+<div class="body">
+    <mat-card>
+        <h2>QR Input</h2>
+
+        <mat-form-field color="accent" appearance="outline" (click)="qr = ''">
+            <mat-label>QR Code</mat-label>
+            <input matInput type="text" [(ngModel)]="qr" (input)="qrChange()">
+        </mat-form-field>
+    </mat-card>
+    
+    <mat-card *ngIf="uniquePart">
+        <h2>Unique Part</h2>
+
+        <mat-form-field color="accent" appearance="outline" (click)="customer_order = ''">
+            <mat-label>Customer order</mat-label>
+            <input matInput type="text" [(ngModel)]="customer_order">
+        </mat-form-field>
+
+        <button mat-stroked-button (click)="save()">
+            <mat-icon>save</mat-icon>
+            Save
+        </button>
+    </mat-card>
+</div>

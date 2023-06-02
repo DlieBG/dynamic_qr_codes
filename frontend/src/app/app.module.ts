@@ -34,6 +34,7 @@ import { AdminUniquePartListComponent } from './components/admin/admin-unique-pa
 import { AdminUniquePartComponent } from './components/admin/admin-unique-part/admin-unique-part.component';
 import { AdminComponent } from './components/admin/admin/admin.component';
 import { HomeComponent } from './components/home/home.component';
+import { KeyenceComponent } from './components/keyence/keyence.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { HomeComponent } from './components/home/home.component';
     AdminUniquePartComponent,
     AdminComponent,
     HomeComponent,
+    KeyenceComponent,
   ],
   imports: [
     BrowserModule,
